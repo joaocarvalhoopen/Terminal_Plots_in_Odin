@@ -13,7 +13,6 @@ package terminal_plots
 import "core:fmt"
 import "core:os"
 import "core:strings"
-import "core:strconv"
 
 Color_Mode :: enum {
 
@@ -198,15 +197,17 @@ apply_color :: proc ( text     : string,
         
         return text
     }
-    
+
+    env_buf: [ 32 ]byte
+
     // Check NO_COLOR environment variable
-    if no_color || os.get_env( "NO_COLOR" ) != "" {
-        
+    if no_color || os.get_env_buf( env_buf[ : ], "NO_COLOR" ) != "" {
+
         return text
     }
     
     // Check FORCE_COLOR environment variable
-    force_color := os.get_env( "FORCE_COLOR" )
+    force_color := os.get_env_buf( env_buf[ : ], "FORCE_COLOR" )
     if force_color != "" {
         
         force_lower := strings.to_lower( force_color, context.temp_allocator )

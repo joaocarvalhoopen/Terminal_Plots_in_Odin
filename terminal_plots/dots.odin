@@ -11,7 +11,6 @@
 package terminal_plots
 
 import "core:fmt"
-import "core:strings"
 
 // Braille dot mapping for Unicode characters
 // Dot ordering : U+2800 '⠀' - U+28FF '⣿' according to ISO/TR 11548-1

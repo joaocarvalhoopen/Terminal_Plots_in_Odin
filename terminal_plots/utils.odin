@@ -11,7 +11,6 @@
 package terminal_plots
 
 import "core:math"
-import "core:slice"
 import "core:fmt"
 import "core:strings"
 

@@ -11,7 +11,6 @@
 package terminal_plots
 
 import "core:fmt"
-import "core:math"
 import "core:strings"
 
 Plot_Type :: enum {
